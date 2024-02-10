@@ -34,6 +34,7 @@ app.post('/', async (req, res) => {
             letter.message.push({ text: message, date: getCurrentDate() })
             // Save the letter to the database
             const savedLetter = await letter.save();
+            console.log('success')
             res.status(201).json(savedLetter);
         } catch (error) {
             res.status(500).json({ error: 'Internal Server Error' });
@@ -63,7 +64,7 @@ app.get('/', async (req, res) => {
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }
-
+        console.log('success')
         // Send the user information in the response
         res.status(200).json(user);
     }
@@ -81,7 +82,7 @@ app.get('/letters', async (req, res) => {
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }
-
+        console.log('success')
         // Send the user information in the response
         res.status(200).json(user);
     }

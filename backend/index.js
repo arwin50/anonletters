@@ -55,7 +55,7 @@ app.post('/', async (req, res) => {
 });
 
 
-app.get('/username', async (req, res) => {
+app.get('/', async (req, res) => {
     const { name } = req.query
     try {
         const user = await Letter.findOne({ name })

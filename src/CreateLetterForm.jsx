@@ -17,7 +17,7 @@ export default function CreateLetterForm() {
     const handleSubmit = async (evt) => {
         evt.preventDefault()
         try {
-            await axios.post('http://localhost:5000/', {
+            await axios.post('https://anonymousletters.onrender.com/', {
                 name: receiver.name,
                 message: receiver.message,
             });

@@ -11,7 +11,7 @@ export default function Letters() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/letters', { params: { id: userId } });
+                const res = await axios.get('https://anonymousletters.onrender.com/letters', { params: { id: userId } });
                 const receivedLetters = res.data;
                 setLetters(receivedLetters);
             }

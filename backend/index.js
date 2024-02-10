@@ -2,15 +2,17 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from 'cors'
 import Letter from "./models/letter.js";
+import dotenv from 'dotenv'
 import bodyParser from "body-parser";
 import { getCurrentDate } from "../src/utils/CurrentDate.js";
-
+dotenv.config()
 
 main().then(() => console.log('Connected to the Database'))
     .catch(err => console.log('OHNO ERROR!', err));
 
 async function main() {
-    await mongoose.connect("mongodb://localhost:27017/AnonLetters");
+    await mongoose.connect(process.env.DB_URL);
+    console.log(process.env.DB_URL)
 }
 
 const app = express()

@@ -6,7 +6,7 @@ export default function Home() {
 
     return (
         <main className='flex items-center justify-center h-screen bg-[#2b2d42]'>
-            <div className="border-8 border-[#ef233c] w-[30%] h-[55%] bg-[#edf2f4] flex flex-col rounded">
+            <div className="border-8 border-[#ef233c] max-[640px]:w-[80%] sm:w-[50%] lg:w-[30%] h-[55%] bg-[#edf2f4] flex flex-col rounded">
                 <h1 className="flex justify-center text-3xl font-extrabold text-[#2b2d42] mb-14 mt-16">
                     Anon Letters
                 </h1>

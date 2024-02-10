@@ -13,7 +13,7 @@ export default function Form() {
     const handleSubmit = async (evt) => {
         evt.preventDefault();
         try {
-            const res = await axios.get('https://anonymousletters.onrender.com/', { params: { name: username } });
+            const res = await axios.get("https://anonymousletters.onrender.com/", { params: { name: username } });
             const userId = res.data._id
             navigate(`/${userId}/letters`)
         }

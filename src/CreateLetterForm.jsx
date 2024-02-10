@@ -20,7 +20,7 @@ export default function CreateLetterForm() {
             await axios.post('https://anonymousletters.onrender.com/', {
                 name: receiver.name,
                 message: receiver.message,
-            });s
+            });
 
             setReceiver({ name: "", message: "" })
         } catch (error) {

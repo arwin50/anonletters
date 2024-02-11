@@ -6,7 +6,8 @@ const letterSchema = new Schema(
         name: String,
         message: [{
             text: String,
-            date: String
+            date: String,
+            sender: String
         }]
     }
 )

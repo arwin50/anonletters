@@ -26,15 +26,14 @@ app.use(cors(corsOptions))
 
 app.post('/', async (req, res) => {
     console.log(req.body)
-    const { name, message } = req.body;
+    const { name, message, sender } = req.body;
     const letter = await Letter.findOne({ name })
     if (letter) {
 
         try {
-            letter.message.push({ text: message, date: getCurrentDate() })
+            letter.message.push({ text: message, date: getCurrentDate(), sender: sender })
             // Save the letter to the database
             const savedLetter = await letter.save({ w: "majority" });
-            console.log('success')
             res.status(201).json(savedLetter);
         } catch (error) {
             res.status(500).json({ error: 'Internal Server Error' });
@@ -43,7 +42,7 @@ app.post('/', async (req, res) => {
     else {
         try {
             const newLetter = new Letter({
-                name, message: { text: message, date: getCurrentDate() }
+                name, message: { text: message, date: getCurrentDate(), sender: sender }
             });
             // Save the letter to the database
             const savedLetter = await newLetter.save({ w: "majority" });
@@ -64,7 +63,6 @@ app.get('/', async (req, res) => {
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }
-        console.log('success')
         // Send the user information in the response
         res.status(200).json(user);
     }
@@ -82,7 +80,6 @@ app.get('/letters', async (req, res) => {
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }
-        console.log('success')
         // Send the user information in the response
         res.status(200).json(user);
     }

@@ -28,7 +28,7 @@ export default function Form() {
     return (
         <div className="">
             <form className="flex flex-col justify-center items-center" onSubmit={handleSubmit}>
-                <label htmlFor="name">Type the name/codename</label>
+                <label htmlFor="name">Search letters for</label>
                 <input type="text"
                     id="name"
                     name="name"

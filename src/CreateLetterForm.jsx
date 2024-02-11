@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function CreateLetterForm() {
     const navigate = useNavigate();
-    const [receiver, setReceiver] = useState({ name: "", message: "" });
+    const [receiver, setReceiver] = useState({ name: "", message: "", sender: "" });
 
     const updateField = (evt) => {
         const field = evt.target.name;
@@ -20,9 +20,10 @@ export default function CreateLetterForm() {
             await axios.post("https://anonletters.onrender.com/", {
                 name: receiver.name,
                 message: receiver.message,
+                sender: receiver.sender
             });
 
-            setReceiver({ name: "", message: "" })
+            setReceiver({ name: "", message: "", sender: "" })
         } catch (error) {
             console.error('Error!:', error);
         }
@@ -37,6 +38,15 @@ export default function CreateLetterForm() {
                 onChange={updateField}
                 value={receiver.name}
                 placeholder="Harry Potter"
+                className=" w-[85%] h-11 text-center font-semibold text-slate-700 bg-stone-300 border-2 rounded border-[#2b2d42] border-opacity-50"
+            />
+            <label htmlFor="sender">Codename</label>
+            <input type="text"
+                id="sender"
+                name="sender"
+                onChange={updateField}
+                value={receiver.sender}
+                placeholder="Worst Enemy"
                 className=" w-[85%] h-11 text-center font-semibold text-slate-700 bg-stone-300 border-2 rounded border-[#2b2d42] border-opacity-50"
             />
             <label htmlFor="message">Message</label>

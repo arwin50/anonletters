@@ -23,7 +23,6 @@ export default function Letters() {
         fetchData();
     }, [userId]);
 
-
     return (
         <main className="flex justify-center items-center h-screen bg-[#2b2d42]">
             <section className="w-[80%] h-[80%] bg-[#edf2f4] rounded border-8 border-[#ef233c] flex flex-col overflow-y-scroll">
@@ -34,8 +33,9 @@ export default function Letters() {
                     <div key={index} >
                         <div className="mt-4 my-1 p-4 bg-white border rounded shadow-md max-sm:text-xs">
                             {message.text}
+
                         </div>
-                        <p className="ml-4 text-xs">Date Sent: {message.date}</p>
+                        <p className="ml-4 text-xs">Date Sent: {message.date} by: {message.sender}</p>
                     </div>
 
                 ))}

@@ -2,9 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+
 export default function CreateLetterForm() {
     const navigate = useNavigate();
-    const [receiver, setReceiver] = useState({ name: "", message: "", sender: "" });
+    const [receiver, setReceiver] = useState({ name: "", message: "", sender: "", email: "" });
 
     const updateField = (evt) => {
         const field = evt.target.name;
@@ -49,6 +50,7 @@ export default function CreateLetterForm() {
                 placeholder="Worst Enemy"
                 className=" w-[85%] h-11 text-center font-semibold text-slate-700 bg-stone-300 border-2 rounded border-[#2b2d42] border-opacity-50"
             />
+
             <label htmlFor="message">Message</label>
             <textarea type="text"
                 id="message"

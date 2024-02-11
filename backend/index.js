@@ -5,6 +5,7 @@ import Letter from "./models/letter.js";
 import dotenv from 'dotenv'
 import bodyParser from "body-parser";
 import { getCurrentDate } from "../src/utils/CurrentDate.js";
+
 dotenv.config();
 
 main().then(() => console.log('Connected to the Database!'))

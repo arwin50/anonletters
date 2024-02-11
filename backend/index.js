@@ -6,7 +6,7 @@ import dotenv from 'dotenv'
 import bodyParser from "body-parser";
 import { getCurrentDate } from "../src/utils/CurrentDate.js";
 dotenv.config();
-console.log(process.env.DB_URL)
+
 main().then(() => console.log('Connected to the Database!'))
     .catch(err => console.log('OHNO ERROR!', err));
 
@@ -25,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors(corsOptions))
 
 app.post('/', async (req, res) => {
+    console.log(req.body)
     const { name, message } = req.body;
     const letter = await Letter.findOne({ name })
     if (letter) {

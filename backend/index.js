@@ -33,7 +33,7 @@ app.post('/', async (req, res) => {
         try {
             letter.message.push({ text: message, date: getCurrentDate() })
             // Save the letter to the database
-            const savedLetter = await letter.save();
+            const savedLetter = await letter.save({ w: "majority" });
             console.log('success')
             res.status(201).json(savedLetter);
         } catch (error) {
@@ -46,7 +46,7 @@ app.post('/', async (req, res) => {
                 name, message: { text: message, date: getCurrentDate() }
             });
             // Save the letter to the database
-            const savedLetter = await newLetter.save();
+            const savedLetter = await newLetter.save({ w: "majority" });
             res.status(201).json(savedLetter);
         } catch (error) {
             res.status(500).json({ error: 'Internal Server Error' });
@@ -93,6 +93,6 @@ app.get('/letters', async (req, res) => {
 
 })
 
-app.listen(8080, () => {
-    console.log('listening in 5000000000')
+app.listen(process.env.PORT, () => {
+    console.log('listening')
 })
